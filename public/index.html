@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dad Joke API — WLZBI</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      gap: 24px;
+      padding: 24px;
+    }
+    .credit {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 2rem;
+    }
+    .wlzbi {
+      font-weight: bold;
+      color: #000;
+    }
+    .bar {
+      color: #fff;
+      background: #fff;
+      width: 4px;
+      height: 2.2rem;
+      display: inline-block;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px #ccc;
+    }
+    .rejerks {
+      font-weight: bold;
+      color: limegreen;
+    }
+    .joke {
+      font-size: 1.4rem;
+      max-width: 640px;
+      text-align: center;
+    }
+    pre {
+      background: #111;
+      color: #0f0;
+      padding: 16px;
+      border-radius: 8px;
+      max-width: 100%;
+      overflow-x: auto;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="credit">
+    <span class="wlzbi">WLZBI</span>
+    <span class="bar"></span>
+    <span class="rejerks">@rejerks</span>
+  </div>
+
+  <div class="joke" id="joke">Loading…</div>
+
+  <pre id="json"></pre>
+
+  <script>
+    fetch('/api/joke')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('joke').textContent = data.joke ?? data.error ?? '';
+        document.getElementById('json').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(err => {
+        document.getElementById('joke').textContent = 'Failed to load joke.';
+        document.getElementById('json').textContent = String(err);
+      });
+  </script>
+</body>
+</html>
