@@ -1,16 +1,3 @@
-html
-<p align="center">
-  <a href="https://t.me/rejerks">
-    <img src="https://img.shields.io/badge/Telegram-@rejerks-blue?style=for-the-badge&logo=telegram" alt="Telegram">
-  </a>
-  <a href="https://t.me/parithings">
-    <img src="https://img.shields.io/badge/Telegram-@parithings-blue?style=for-the-badge&logo=telegram" alt="Telegram Group">
-  </a>
-</p>
-Another key point: the Shields.io badge URL must include the complete three components label-message-color, otherwise it will render as a broken image. Your badge URL form
-
-Complete README.md
-markdown
 # Dad Joke API
 
 <p align="center">
